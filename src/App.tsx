@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import {nanoid} from "nanoid"
 import './App.css';
+import NotesList from './components/NotesList';
+import {Note} from "./interfaces/noteInterface"
 
-function App() {
+const App: React.FC = () => {
+
+  const [notes, setNotes] = useState<Note[]>([])
+
+  const addNote = (text: string) => {
+    // console.log(text)
+    const date = new Date()
+    setNotes([...notes, {id: nanoid(), note: text, date: date.toLocaleDateString()}])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <NotesList
+        notes={notes}
+        addNotes={addNote}
+      />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
+
+// {
+//   id: nanoid(),
+//   note: "asas",
+//   title: "sasas",
+//   date: "12/12/12"
+// },
+// {
+//   id: nanoid(),
+//   note: "asas",
+//   title: "sasas",
+//   date: "12/13/12"
+// },
+// {
+//   id: nanoid(),
+//   note: "asas",
+//   title: "sasas",
+//   date: "12/12/12"
+// }

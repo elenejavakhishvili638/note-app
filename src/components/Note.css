@@ -1,0 +1,38 @@
+.note {
+  background-color: #e6cba8;
+  border-radius: 8px;
+  padding: 1rem;
+  /* margin: 10px; */
+  min-height: 170px;
+  /* max-width: 300px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.note h3 {
+  margin: 0px;
+}
+
+.date {
+  margin: 0px;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  /* align-content: center; */
+}
+
+.delete-icon {
+  /* background-color: none; */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-icon:hover {
+  transform: scale(1.2);
+}
