@@ -18,3 +18,7 @@ export interface NoteProps {
 export interface AddNoteProps {
     addNotes: (text: string) => void
 }
+
+export interface SearchBarProps {
+    searchNote: React.Dispatch<React.SetStateAction<string>>
+}

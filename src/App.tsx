@@ -3,10 +3,12 @@ import {nanoid} from "nanoid"
 import './App.css';
 import NotesList from './components/NotesList';
 import {Note} from "./interfaces/noteInterface"
+import SearchBar from './components/SearchBar';
 
 const App: React.FC = () => {
 
   const [notes, setNotes] = useState<Note[]>([])
+  const [searchValue, setSearchValue] = useState<string>("")
 
   const addNote = (text: string) => {
     // console.log(text)
@@ -20,10 +22,20 @@ const App: React.FC = () => {
     setNotes(filteredNotes)
   }
 
+  // const searchNote = (searchText: string) => {
+
+  //   // const filteredText = notes.filter((note) => note.note.toLowerCase().includes(searchText))
+  //   // console.log(filteredText)
+  //   // setNotes(filteredText) 
+  // }
+
   return (
     <div className='container'>
+      <SearchBar
+        searchNote={setSearchValue}
+      />
       <NotesList
-        notes={notes}
+        notes={notes.filter((note) => note.note.toLowerCase().includes(searchValue))}
         addNotes={addNote}
         deleteNote={deleteNote}
       />
