@@ -14,11 +14,18 @@ const App: React.FC = () => {
     setNotes([...notes, {id: nanoid(), note: text, date: date.toLocaleDateString()}])
   }
 
+  const deleteNote = (id: string) => {
+    // console.log(id)
+    const filteredNotes = notes.filter((note) => note.id !== id)
+    setNotes(filteredNotes)
+  }
+
   return (
     <div className='container'>
       <NotesList
         notes={notes}
         addNotes={addNote}
+        deleteNote={deleteNote}
       />
     </div>
   )

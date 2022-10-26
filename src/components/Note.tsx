@@ -3,7 +3,12 @@ import "./Note.css"
 import {BsTrash} from "react-icons/bs"
 import {NoteProps} from "../interfaces/propsInterface"
 
-const Note: React.FC<NoteProps> = ({date, id, note}) => {
+const Note: React.FC<NoteProps> = ({date, id, note, deleteNote}) => {
+
+  // const handleClick = () => {
+  //   deleteNote(id)
+  // }
+
   return (
     <div className='note'>
       <div className='note-content'>
@@ -12,7 +17,7 @@ const Note: React.FC<NoteProps> = ({date, id, note}) => {
       </div>
       <div className='note-footer'>
         <p className='date'>{date}</p>
-        <button className='delete-icon'><BsTrash /></button>
+        <button className='delete-icon' onClick={() => deleteNote(id)} ><BsTrash  size="0.9rem" /></button>
       </div>
     </div>
   )

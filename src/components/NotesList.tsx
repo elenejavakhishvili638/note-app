@@ -4,7 +4,7 @@ import "./NotesList.css"
 import {Props} from "../interfaces/propsInterface"
 import { NewNote } from './NewNote'
 
-const NotesList: React.FC<Props> = ({notes, addNotes}) => {
+const NotesList: React.FC<Props> = ({notes, addNotes, deleteNote}) => {
 
   return (
     <div className='notes-list'>
@@ -16,11 +16,12 @@ const NotesList: React.FC<Props> = ({notes, addNotes}) => {
                 note={note.note}
                 date={note.date}
                 id={note.id}
+                deleteNote={deleteNote}
               />
           ))
         }
         <NewNote 
-        addNotes={addNotes}
+          addNotes={addNotes}
         />
     </div>
   )
