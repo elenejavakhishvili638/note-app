@@ -10,8 +10,8 @@
 }
 
 .save-btn {
-  /* background-color: #e1e1e1; */
-  background-color: #ededed;
+  background-color: #e1e1e1;
+  /* background-color: #ededed; */
   border: none;
   border-radius: 10px;
   padding: 5px 10px;
@@ -20,6 +20,6 @@
 
 .save-btn:hover {
   transform: scale(0.9);
-  /* background-color: #ededed; */
-  background-color: #e1e1e1;
+  background-color: #ededed;
+  /* background-color: #e1e1e1; */
 }

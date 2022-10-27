@@ -22,3 +22,8 @@ export interface AddNoteProps {
 export interface SearchBarProps {
     searchNote: React.Dispatch<React.SetStateAction<string>>
 }
+
+export interface HeaderProps {
+    setIsDark: React.Dispatch<React.SetStateAction<boolean>>
+    isDark: boolean
+}

@@ -1,5 +1,11 @@
-/* .container {
-  max-width: 960px;
+.container {
   margin-right: auto;
   margin-left: auto;
-} */
+  min-height: 100vh;
+  font-family: "Roboto Mono", monospace;
+  padding: 30px 30px 30px 30px;
+}
+
+.dark {
+  background-color: black;
+}

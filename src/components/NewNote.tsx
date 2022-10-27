@@ -5,15 +5,12 @@ import {AddNoteProps} from "../interfaces/propsInterface"
 export const NewNote: React.FC<AddNoteProps> = ({addNotes}) => {
   const [noteText, setNoteText] = useState<string>("")
   const length = 200
-  // console.log(noteText)
 
   const handleClick = () => {
-    // localStorage.setItem("note", JSON.stringify(noteText))
     if (noteText.trim().length > 0) {
       addNotes(noteText)
       setNoteText("")
     }
-    // setLength(0)
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {

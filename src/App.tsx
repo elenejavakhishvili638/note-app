@@ -1,14 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {nanoid} from "nanoid"
 import './App.css';
 import NotesList from './components/NotesList';
 import {Note} from "./interfaces/noteInterface"
 import SearchBar from './components/SearchBar';
+import {Header} from './components/Header';
 
 const App: React.FC = () => {
 
   const [notes, setNotes] = useState<Note[]>([])
   const [searchValue, setSearchValue] = useState<string>("")
+  const [isDark, setIsDark] = useState<boolean>(false)
+
+
+useEffect(() => {
+  const savedNotes = JSON.parse(localStorage.getItem("note") || "")
+  
+  console.log(savedNotes)
+  
+  if(savedNotes) {
+    setNotes(savedNotes)
+  }
+}, [])
+
+useEffect(() => {
+  localStorage.setItem("note", JSON.stringify(notes))
+},[notes])
 
   const addNote = (text: string) => {
     // console.log(text)
@@ -30,7 +47,12 @@ const App: React.FC = () => {
   // }
 
   return (
+    <div className={`${isDark && "dark"}`}>
     <div className='container'>
+      <Header
+        isDark={isDark}
+        setIsDark={setIsDark}
+      />
       <SearchBar
         searchNote={setSearchValue}
       />
@@ -40,26 +62,9 @@ const App: React.FC = () => {
         deleteNote={deleteNote}
       />
     </div>
+    </div>
   )
 }
 
 export default App
 
-// {
-//   id: nanoid(),
-//   note: "asas",
-//   title: "sasas",
-//   date: "12/12/12"
-// },
-// {
-//   id: nanoid(),
-//   note: "asas",
-//   title: "sasas",
-//   date: "12/13/12"
-// },
-// {
-//   id: nanoid(),
-//   note: "asas",
-//   title: "sasas",
-//   date: "12/12/12"
-// }

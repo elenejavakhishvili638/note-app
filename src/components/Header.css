@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  margin: 5px 0px;
+}
+
+.dark-mode {
+  color: white;
+}
+
+.toggle-btn {
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.toggle-btn:hover {
+  transform: scale(0.9);
+  background-color: #ededed;
+}
