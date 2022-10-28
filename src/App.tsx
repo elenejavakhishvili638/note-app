@@ -14,7 +14,7 @@ const App: React.FC = () => {
 
 
 useEffect(() => {
-  const savedNotes = JSON.parse(localStorage.getItem("note") || "")
+  const savedNotes = JSON.parse(window.localStorage.getItem("note") || "")
   
   console.log(savedNotes)
   
@@ -24,8 +24,12 @@ useEffect(() => {
 }, [])
 
 useEffect(() => {
-  localStorage.setItem("note", JSON.stringify(notes))
+  if(notes.length > 0) {
+    window.localStorage.setItem("note", JSON.stringify(notes))
+  }
 },[notes])
+
+// setState is an asynchronous function, this implies that this code snippet below will always run with items as empty arrays before items receive data from "setItems(data)".
 
   const addNote = (text: string) => {
     // console.log(text)
